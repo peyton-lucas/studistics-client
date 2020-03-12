@@ -1,0 +1,444 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+// Variables
+$background-color: #f8f9fa;
+$font-family: 'Montserrat', sans-serif !important;
+$font-color: #2e373b;
+$header-weight: 300;
+$description-weight: 500;
+$primary-color: #EE4E54;
+$primary-color-hover: scale-color($primary-color, $lightness: 32%);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: $font-family;
+  background: $background-color !important;
+  color: $font-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.brandLink {
+  color: inherit !important;
+}
+
+select.form-control,
+textarea.form-control,
+input.form-control {
+  font-size: 16px;
+}
+
+input[type=file] {
+  width: 100%;
+}
+
+.svg-inline--fa {
+  overflow: visible;
+  vertical-align: -0.125em;
+  display: inline-flex;
+  align-self: center;
+  margin-top: 6%;
+}
+
+// App
+.App {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: $font-color;
+  .navbar-brand {
+    font-weight: bold;
+    font-family: $font-family;
+    font-size: 25px;
+  }
+  .navbar {
+    display: block;
+    justify-content: space-between;
+    font-family: $font-family;
+    font-size: 25px;
+  }
+}
+
+// Form
+@media all and (min-width: 480px) {
+  .Form {
+    padding: 60px 0;
+  }
+  .Form form {
+    margin: 0 auto;
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+  }
+}
+
+// Hero
+.hero {
+  .lander {
+    background: $background-color;
+    color: $font-color;
+    padding: 8rem 0 6.9rem;
+    h1 {
+      font-weight: 600;
+      font-size: 75px;
+      margin-bottom: 1.5%;
+    }
+    h2 {
+      font-size: 2.5rem !important;
+      margin-top: 1.5%;
+      margin-bottom: 8%;
+    }
+    .cta {
+      display: block;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .bottom {
+      bottom: 8%;
+      width: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .arrow,
+    .arrow:before {
+      position: absolute;
+      left: 49.3%;
+    }
+    .arrow {
+      width: 20px;
+      height: 20px;
+      bottom: 3%;
+      -webkit-transform: rotate(45deg);
+      border-left: none;
+      border-top: none;
+      border-right: 2px $font-color solid;
+      border-bottom: 2px $font-color solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.kpi {
+  background: $background-color;
+  .kpi-header {
+    font-size: 18px;
+    font-weight: $header-weight;
+    height: 12px;
+    display: inline-block;
+    color: $font-color;
+  }
+  .kpi-description {
+    color: $font-color;
+    letter-spacing: 0.3px;
+    font-weight: $description-weight;
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+  .kpi-delta {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+}
+
+.header-line {
+  max-width: 30%;
+  border-bottom: 1px solid $font-color;
+  margin: 0 auto;
+}
+
+// Loader Button
+.LoaderButton {
+  background: #EE4E54;
+  .spinning.glyphicon {
+    margin-right: 7px;
+    top: 2px;
+    animation: spin 1s infinite linear;
+    background: white !important;
+  }
+}
+
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1) rotate(360deg); }
+}
+
+// DNA Loader Animation
+.loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 20vmin;
+  height: 10vmin;
+  margin: auto;
+}
+// Parent / Child Relationship: loader / loader-line
+.loader {
+  .loader-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3%;
+    margin-left: -3/2%;
+    transform: rotateX(90deg);
+    animation: loader-anim 1.5s linear infinite;
+    background: $primary-color;
+  }
+}
+
+@keyframes loader-anim {
+  to {
+    transform: rotateX(270deg);
+  }
+}
+
+/* Must be some way to refactor this for Sass */
+
+.loader {
+  .loader-line {
+    &:nth-child(1) {
+      left: 10%;
+      animation-delay: .1s;
+    }
+    &:nth-child(2) {
+      left: 20%;
+      animation-delay: .2s;
+    }
+    &:nth-child(3) {
+      left: 30%;
+      animation-delay: .3s;
+    }
+    &:nth-child(4) {
+      left: 40%;
+      animation-delay: .4s;
+    }
+    &:nth-child(5) {
+      left: 50%;
+      animation-delay: .5s;
+    }
+    &:nth-child(6) {
+      left: 60%;
+      animation-delay: .6s;
+    }
+    &:nth-child(7) {
+      left: 70%;
+      animation-delay: .7s;
+    }
+    &:nth-child(8) {
+      left: 80%;
+      animation-delay: .8s;
+    }
+  }
+}
+
+
+// Hat-tip goes out to Brady Wright from Overflow(https://overflowdg.com/)
+// Codepen: https://codepen.io/brady_wright/pen/NNOvrW
+
+/*==================================
+    TIMELINE
+==================================*/
+
+/*-- GENERAL STYLES
+------------------------------*/
+.timeline {
+  line-height: 1.4em;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  h3 {
+    line-height: inherit;
+  }
+}
+
+/*----- TIMELINE ITEM -----*/
+
+.timeline-item {
+  padding-left: 40px;
+  position: relative;
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+/*----- TIMELINE INFO -----*/
+
+.timeline-info {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0 0 .5em 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/*----- TIMELINE MARKER -----*/
+
+.timeline-marker {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 15px;
+  &:before {
+    background: $primary-color;
+    border: 3px solid transparent;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: 15px;
+    position: absolute;
+    top: 4px; left: 0;
+    width: 15px;
+    transition: background 0.3s ease-in-out,
+    border 0.3s ease-in-out;
+  }
+  &:after {
+    content: "";
+    width: 3px;
+    background: #bdbdbd;
+    display: block;
+    position: absolute;
+    top: 24px; bottom: 0; left: 6px;
+  }
+  .timeline-item:last-child &:after {
+    content: none;
+  }
+}
+.timeline-item:not(.period):hover .timeline-marker:before {
+  background: transparent;
+  border: 3px solid $primary-color;
+}
+
+/*----- TIMELINE CONTENT -----*/
+
+.timeline-content {
+  padding-bottom: 40px;
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*----- TIMELINE PERIOD -----*/
+
+.period {
+  padding: 0;
+  .timeline-info {
+    display: none;
+  }
+  .timeline-marker {
+    &:before {
+      background: transparent;
+      content: "";
+      width: 15px;
+      height: auto;
+      border: none;
+      border-radius: 0;
+      top: 0;
+      bottom: 30px;
+      position: absolute;
+      border-top: 3px solid #CCD5DB;
+      border-bottom: 3px solid #CCD5DB;
+    }
+    &:after {
+      content: "";
+      height: 32px;
+      top: auto;
+    }
+  }
+  .timeline-content {
+    padding: 40px 0 70px;
+  }
+  .timeline-title {
+    margin: 0;
+  }
+}
+
+/*----------------------------------------------
+    MOD: TIMELINE CENTERED
+----------------------------------------------*/
+
+.timeline-centered {
+  @media (min-width: 992px) {
+    &,
+    .timeline-item,
+    .timeline-info,
+    .timeline-marker,
+    .timeline-content {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+    .timeline-item {
+      padding-bottom: 40px;
+      overflow: hidden;
+    }
+    .timeline-marker {
+      position: absolute;
+      left: 50%;
+      margin-left: -7.5px;
+    }
+    .timeline-info,
+    .timeline-content {
+      width: 50%;
+    }
+    > .timeline-item:nth-child(odd) .timeline-info {
+      float: left;
+      text-align: right;
+      padding-right: 30px;
+    }
+    > .timeline-item:nth-child(odd) .timeline-content {
+      float: right;
+      text-align: left;
+      padding-left: 30px;
+    }
+    > .timeline-item:nth-child(even) .timeline-info {
+      float: right;
+      text-align: left;
+      padding-left: 30px;
+    }
+    > .timeline-item:nth-child(even) .timeline-content {
+      float: left;
+      text-align: right;
+      padding-right: 30px;
+    }
+    > .timeline-item.period .timeline-content {
+      float: none;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+    }
+    .timeline-item.period {
+      padding: 50px 0 90px;
+    }
+    .period .timeline-marker:after {
+      height: 30px;
+      bottom: 0;
+      top: auto;
+    }
+    .period .timeline-title {
+      left: auto;
+    }
+  }
+}
+
+/*----------------------------------------------
+    MOD: MARKER OUTLINE
+----------------------------------------------*/
+
+.marker-outline {
+  .timeline-marker {
+    &:before {
+      background: transparent;
+      border-color: $primary-color;
+    }
+  }
+  .timeline-item:hover .timeline-marker:before {
+    background: $primary-color;
+  }
+}

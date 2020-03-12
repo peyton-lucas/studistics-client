@@ -1,0 +1,8 @@
+earId,weight,collectionTime,,,,,,,
+ear ID of animal,weight in lbs up to 5 decimal places,MM-DD-YYYY,Insert ear ID and time of collection for each weight measurement in the format of this row's cells,,,,,,Delete ALL rows from here down to enter your data
+FLY100,12.5,01-01-2020,,,,,,,
+FLY100,36.2,02-01-2020,,,,,,,
+FLY100,50.6,03-01-2020,,,,,,,
+FLY101,13.4,01-01-2020,,,,,,,
+FLY101,25.6,02-01-2020,,,,,,,
+FLY101,58.12,03-01-2020,,,,,,,

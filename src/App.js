@@ -1,26 +1,87 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment, useState } from "react";
+import { Auth } from "aws-amplify";
+import { Link, withRouter } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
+import Routes from "./Routes";
+import { connect } from "react-redux";
+import { logout } from "./store/actions";
+import "./styles.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isAuthenticated: false,
+      isAuthenticating: true
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      await Auth.currentSession();
+      this.userHasAuthenticated(true);
+    } catch (e) {
+      if (e !== 'No current user') {
+        alert(e);
+      }
+    }
+
+    this.setState({isAuthenticating: false});
+  }
+
+  userHasAuthenticated = authenticated => {
+    this.setState({isAuthenticated: authenticated});
+  }
+
+  handleLogout = async event => {
+    this.props.logout();
+
+    this.userHasAuthenticated(false);
+
+    this.props.history.push("/");
+  }
+
+  render() {
+    const childProps = {
+      isAuthenticated: this.state.isAuthenticated,
+      userHasAuthenticated: this.userHasAuthenticated
+    };
+
+    return (
+      !this.state.isAuthenticating &&
+      <div>
+        <Navbar className="App" expand="lg" bg="light">
+          <Navbar.Brand>
+            <Link className="brandLink" to="/">Studistics</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+            </Nav>
+            <Nav className="inline">
+              {this.state.isAuthenticated
+                ? <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
+                : <Fragment>
+                  <LinkContainer to="/login">
+                    <Nav.Link>Login</Nav.Link>
+                  </LinkContainer>
+                </Fragment>
+              }
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <Routes childProps={childProps}/>
+      </div>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+}
+
+export default withRouter(connect(mapStateToProps, {logout})(App));
