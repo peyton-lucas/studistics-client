@@ -78,7 +78,10 @@ input[type=file] {
   .lander {
     background: $background-color;
     color: $font-color;
-    padding: 8rem 0 6.9rem;
+    //padding: 1rem 0 1rem;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    text-align: center;
     h1 {
       font-weight: 600;
       font-size: 75px;
@@ -95,31 +98,8 @@ input[type=file] {
       justify-content: center;
       text-align: center;
     }
-    .bottom {
-      bottom: 8%;
-      width: 100%;
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .arrow,
-    .arrow:before {
-      position: absolute;
-      left: 49.3%;
-    }
-    .arrow {
-      width: 20px;
-      height: 20px;
-      bottom: 3%;
-      -webkit-transform: rotate(45deg);
-      border-left: none;
-      border-top: none;
-      border-right: 2px $font-color solid;
-      border-bottom: 2px $font-color solid;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .find-out {
+      margin-top: 4.5%;
     }
   }
 }

@@ -10,14 +10,14 @@ export default class HowItWorks extends Component {
     return (
       <div>
         <Container className="lander">
-          <Row className="cta">
+          <Row id="HowItWorks" className="cta">
             <Col>
               <h4>HOW IT WORKS</h4>
               <div className="header-line"></div>
               <h2>Data-driven approach that visualizes livestock data to help identify your top performers</h2>
               <CardDeck className="text-center">
                 <Card>
-                  <Card.Header>FIRST</Card.Header>
+                  <Card.Header>1. FIRST</Card.Header>
                   <FontAwesomeIcon icon={ faFileDownload } size="4x" style={{ color: "#EE4E54" }} />
                   <Card.Body>
                     <Card.Title>Download CSV Template</Card.Title>
@@ -30,7 +30,7 @@ export default class HowItWorks extends Component {
                   </Card.Body>
                 </Card>
                 <Card>
-                  <Card.Header>FURTHER</Card.Header>
+                  <Card.Header>2. FURTHER</Card.Header>
                   <FontAwesomeIcon icon={ faUser } size="4x" style={{color: "#EE4E54"}} />
                   <Card.Body>
                     <Card.Title>Create an account</Card.Title>
@@ -43,7 +43,7 @@ export default class HowItWorks extends Component {
                   </Card.Body>
                 </Card>
                 <Card>
-                  <Card.Header>FINALLY</Card.Header>
+                  <Card.Header>3. FINALLY</Card.Header>
                   <FontAwesomeIcon icon={ faCloudUploadAlt } size="4x" style={{color: "#EE4E54"}} />
                   <Card.Body>
                     <Card.Title>Upload your CSV</Card.Title>

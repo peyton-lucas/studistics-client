@@ -2,7 +2,7 @@ import React, { Component, Fragment, useState } from "react";
 import { Auth } from "aws-amplify";
 import { Link, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
-import { Nav, Navbar } from "react-bootstrap";
+import { Image, Nav, Navbar } from "react-bootstrap";
 import Routes from "./Routes";
 import { connect } from "react-redux";
 import { logout } from "./store/actions";
@@ -54,7 +54,12 @@ class App extends Component {
       <div>
         <Navbar className="App" expand="lg" bg="light">
           <Navbar.Brand>
-            <Link className="brandLink" to="/">Studistics</Link>
+            <Image
+              src="./dna-double-helix_1f9ec.png"
+              width={30}
+              height={30}
+            />
+            <Link className="brandLink" to="/"> Studistics</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
           <Navbar.Collapse id="responsive-navbar-nav">

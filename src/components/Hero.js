@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Card, Container, Nav, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-scroll";
 import "../styles.scss";
 
 const button = {
@@ -21,15 +22,15 @@ export default class Hero extends Component {
           <Row className="cta">
             <h1>Studistics</h1>
             <h2>Breed heavier, healthier animals</h2>
-            <Button style={ button.CTA }>
-              <LinkContainer className="brandLink" to="/signup">
-                <Nav.Link>Signup</Nav.Link>
-              </LinkContainer>
-            </Button>
+            <LinkContainer style={ button.CTA } to="/signup">
+              <Button>
+                Signup
+              </Button>
+            </LinkContainer>
+            <br />
+            <div className="find-out">Find out more below</div>
           </Row>
         </Container>
-        <Card.Link className="bottom brandLink" href="#HowItWorks">Find out more below</Card.Link>
-        <div className="arrow"></div>
       </div>
     );
   }
